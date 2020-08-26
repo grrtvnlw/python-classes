@@ -7,6 +7,9 @@ class Person:
   def greet(self, other_person):
     print(f'Hello {other_person.name}, I am {self.name}!')
 
+  def print_contact_info(self):
+    print(f'{}')
+
 sonny = Person('Sonny', 'sonny@hotmail.com', '483-485-4948')
 jordan = Person('Jordan', 'jordan@aol.com', '495-586-3456')
 
