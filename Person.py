@@ -5,8 +5,15 @@ class Person:
     self.phone = phone
     self.friends = []
     self.greeting_count = 0
+    self.greets = {}
+
+  def __str__(self):
+    return f'Person: {self.name} {self.email} {self.phone}'
 
   def greet(self, other_person):
+    if other_person.name not in self.greets.keys():
+      self.greets[other_person.name] = 1
+
     print(f'Hello {other_person.name}, I am {self.name}!')
     self.greeting_count += 1
 
@@ -19,14 +26,17 @@ class Person:
   def num_friends(self):
     print(len(self.friends))
 
-  # def greeting_count(self):
-  #   print(self.greeting_count)
+  def num_unqiue_people_greeted(self):
+    print(len(self.greets))
 
 sonny = Person('Sonny', 'sonny@hotmail.com', '483-485-4948')
 jordan = Person('Jordan', 'jordan@aol.com', '495-586-3456')
+dee_ann = Person('Dee_Ann', 'd@gmail.com', '555-867-5309')
 
-print(sonny.greeting_count)
+sonny.num_unqiue_people_greeted()
 sonny.greet(jordan)
-print(sonny.greeting_count)
+sonny.num_unqiue_people_greeted()
 sonny.greet(jordan)
-print(sonny.greeting_count)
+sonny.num_unqiue_people_greeted()
+sonny.greet(dee_ann)
+sonny.num_unqiue_people_greeted()
